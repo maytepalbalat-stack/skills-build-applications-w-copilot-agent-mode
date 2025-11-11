@@ -21,14 +21,33 @@ export default function Users() {
 
   return (
     <div className="container mt-4">
-      <h2>Users</h2>
-      <ul className="list-group">
-        {users.map((u, i) => (
-          <li key={u.id || i} className="list-group-item">
-            {JSON.stringify(u)}
-          </li>
-        ))}
-      </ul>
+      <div className="card">
+        <div className="card-body">
+          <h2 className="card-title mb-4">Users</h2>
+          <div className="table-responsive">
+            <table className="table table-striped table-bordered">
+              <thead className="table-dark">
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Team</th>
+                </tr>
+              </thead>
+              <tbody>
+                {users.map((u, i) => (
+                  <tr key={u.id || i}>
+                    <td>{u.id || i + 1}</td>
+                    <td>{u.name || '-'}</td>
+                    <td>{u.email || '-'}</td>
+                    <td>{u.team || '-'}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -21,14 +21,31 @@ export default function Workouts() {
 
   return (
     <div className="container mt-4">
-      <h2>Workouts</h2>
-      <ul className="list-group">
-        {workouts.map((w, i) => (
-          <li key={w.id || i} className="list-group-item">
-            {JSON.stringify(w)}
-          </li>
-        ))}
-      </ul>
+      <div className="card">
+        <div className="card-body">
+          <h2 className="card-title mb-4">Workouts</h2>
+          <div className="table-responsive">
+            <table className="table table-striped table-bordered">
+              <thead className="table-dark">
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                {workouts.map((w, i) => (
+                  <tr key={w.id || i}>
+                    <td>{w.id || i + 1}</td>
+                    <td>{w.name || '-'}</td>
+                    <td>{w.description || '-'}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

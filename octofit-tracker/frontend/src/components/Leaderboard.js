@@ -21,14 +21,33 @@ export default function Leaderboard() {
 
   return (
     <div className="container mt-4">
-      <h2>Leaderboard</h2>
-      <ul className="list-group">
-        {leaderboard.map((l, i) => (
-          <li key={l.id || i} className="list-group-item">
-            {JSON.stringify(l)}
-          </li>
-        ))}
-      </ul>
+      <div className="card">
+        <div className="card-body">
+          <h2 className="card-title mb-4">Leaderboard</h2>
+          <div className="table-responsive">
+            <table className="table table-striped table-bordered">
+              <thead className="table-dark">
+                <tr>
+                  <th>#</th>
+                  <th>Team</th>
+                  <th>Score</th>
+                  <th>Updated At</th>
+                </tr>
+              </thead>
+              <tbody>
+                {leaderboard.map((l, i) => (
+                  <tr key={l.id || i}>
+                    <td>{l.id || i + 1}</td>
+                    <td>{l.team || '-'}</td>
+                    <td>{l.score || '-'}</td>
+                    <td>{l.updated_at || '-'}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

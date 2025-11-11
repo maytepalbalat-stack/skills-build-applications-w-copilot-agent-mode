@@ -21,14 +21,35 @@ export default function Activities() {
 
   return (
     <div className="container mt-4">
-      <h2>Activities</h2>
-      <ul className="list-group">
-        {activities.map((a, i) => (
-          <li key={a.id || i} className="list-group-item">
-            {JSON.stringify(a)}
-          </li>
-        ))}
-      </ul>
+      <div className="card">
+        <div className="card-body">
+          <h2 className="card-title mb-4">Activities</h2>
+          <div className="table-responsive">
+            <table className="table table-striped table-bordered">
+              <thead className="table-dark">
+                <tr>
+                  <th>#</th>
+                  <th>User</th>
+                  <th>Type</th>
+                  <th>Duration (min)</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                {activities.map((a, i) => (
+                  <tr key={a.id || i}>
+                    <td>{a.id || i + 1}</td>
+                    <td>{a.user || '-'}</td>
+                    <td>{a.type || '-'}</td>
+                    <td>{a.duration || '-'}</td>
+                    <td>{a.date || '-'}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
